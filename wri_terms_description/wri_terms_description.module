@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ *
+ * Some override stuff
+ */
+
+/**
+ * Display the description field when displaying the taxonomy term
+ */
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function wri_terms_description_views_pre_build(&$view) {
+
+  if($view->name == 'taxonomy_term' && $view->current_display == "page") {
+
+    // Argument from URL
+    // forcing term id for test: $my_term = taxonomy_term_load(10790);
+    $my_term = taxonomy_term_load(arg(2));
+    $view->add_item('default', 'header', 'views', 'area', array('content' => $my_term->description, 'format' => 'full_html'));
+
+  }
+}

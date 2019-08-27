@@ -1,0 +1,4 @@
+name = WRI Terms Description
+description = Displays the description field for the term on term 'taxonomy term' view 
+core = 7.x
+package = "WRI"
